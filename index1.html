@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            background-image: url(calculator.jpg);
+            
+        }
+
+        .calculator {
+            background-color:gray;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .display {
+            width: 100%;
+            height: 50px;
+            background: #333;
+            color: #fff;
+            font-size: 2rem;
+            text-align: right;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .buttons button {
+            padding: 20px;
+            font-size: 1.5rem;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: #ddd;
+        }
+
+        .equal {
+            background-color: #4CAF50;
+            color: rgb(26, 2, 2);
+            width: ;
+        }
+
+        .equal:hover {
+            background-color: #45a049;
+        }
+
+        .clear {
+            background-color: #ff4d4d;
+            color: rgb(15, 1, 1);
+        }
+
+        .clear:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <div class="display" id="display"></div>
+    <div class="buttons">
+        <button class="clear" onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+       
+        <button onclick="appendToDisplay('+')">+</button>
+    </div>
+</div>
+
+<script>
+    const display = document.getElementById('display');
+
+    function appendToDisplay(value) {
+        display.innerText += value;
+    }
+
+    function clearDisplay() {
+        display.innerText = '';
+    }
+
+    function calculate() {
+        try {
+            display.innerText = eval(display.innerText);
+        } catch (error) {
+            display.innerText = 'Error';
+        }
+    }
+</script>
+
+</body>
+</html>
